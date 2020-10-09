@@ -17,7 +17,15 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es5",
+<<<<<<< HEAD
     "baseUrl": "."
+=======
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
+>>>>>>> e1fd73e... chore(install): Install important packages
   },
   "exclude": ["node_modules"],
   "include": [
