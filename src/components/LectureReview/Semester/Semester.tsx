@@ -1,11 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import DownArrowSVG from 'public/chevron-down.svg';
 import { SemesterBorder, SemesterText } from './SemesterStyle';
+import ReviewTitle from '../shared/ReviewTitle';
 
 const Semester = () => {
   return (
     <section>
-      <h3>수강학기</h3>
+      <ReviewTitle title="수강학기" />
       <SemesterBorder>
         <SemesterText>2020년 1학기</SemesterText>
         <DownArrowSVG />
