@@ -1,15 +1,14 @@
 import React from 'react';
 import ReviewTitle from '../shared/ReviewTitle';
 import SelectReview from '../shared/SelectReview';
-
 type PropType = {
   metadata: { id: number; value: string; selected: boolean }[];
 };
 
-const CheckFrequency = ({ metadata }: PropType) => {
+const TestDifficulty = ({ metadata }: PropType) => {
   return (
     <section>
-      <ReviewTitle title="출첵빈도" />
+      <ReviewTitle title="시험 난이도" />
       {metadata.map((data) => {
         return (
           <SelectReview
@@ -23,4 +22,4 @@ const CheckFrequency = ({ metadata }: PropType) => {
   );
 };
 
-export default CheckFrequency;
+export default TestDifficulty;

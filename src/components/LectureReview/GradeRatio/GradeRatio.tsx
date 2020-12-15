@@ -6,16 +6,17 @@ type PropType = {
   metadata: { id: number; value: string; selected: boolean }[];
 };
 
-const CheckFrequency = ({ metadata }: PropType) => {
+const GradeRatio = ({ metadata }: PropType) => {
   return (
     <section>
-      <ReviewTitle title="출첵빈도" />
+      <ReviewTitle title="성적비율" />
       {metadata.map((data) => {
         return (
           <SelectReview
             key={data.id}
             metadata={data.value}
             selected={data.selected}
+            largeWidth={true}
           />
         );
       })}
@@ -23,4 +24,4 @@ const CheckFrequency = ({ metadata }: PropType) => {
   );
 };
 
-export default CheckFrequency;
+export default GradeRatio;

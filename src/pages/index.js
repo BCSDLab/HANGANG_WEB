@@ -1,14 +1,10 @@
 import * as React from 'react';
-import Semester from '../components/LectureReview/Semester/Semester';
-import CheckFrequency from '../components/LectureReview/CheckFrequency/CheckFrequency';
-import AssignmentInfo from '../components/LectureReview/AssignmentInfo/AssignmentInfo';
+import LectureReview from '../view/LectureReview/LectureReview';
 
-const index = (props) => {
+const index = () => {
   return (
     <>
-      <Semester></Semester>
-      <CheckFrequency />
-      <AssignmentInfo />
+      <LectureReview />
     </>
   );
 };

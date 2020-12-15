@@ -3,10 +3,15 @@ import { ReviewButton } from './SelectReviewStyle';
 
 type PropType = {
   metadata: string;
-  id: number;
+  selected: boolean;
+  largeWidth?: boolean;
 };
 
-const SelectReview = ({ metadata, id }: PropType) => {
-  return <ReviewButton id={id}>{metadata}</ReviewButton>;
+const SelectReview = ({ metadata, selected, largeWidth }: PropType) => {
+  return (
+    <ReviewButton selected={selected} largeWidth={largeWidth}>
+      {metadata}
+    </ReviewButton>
+  );
 };
 export default SelectReview;

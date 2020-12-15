@@ -6,10 +6,10 @@ type PropType = {
   metadata: { id: number; value: string; selected: boolean }[];
 };
 
-const CheckFrequency = ({ metadata }: PropType) => {
+const AssignmentAmount = ({ metadata }: PropType) => {
   return (
     <section>
-      <ReviewTitle title="출첵빈도" />
+      <ReviewTitle title="과제량" />
       {metadata.map((data) => {
         return (
           <SelectReview
@@ -22,5 +22,4 @@ const CheckFrequency = ({ metadata }: PropType) => {
     </section>
   );
 };
-
-export default CheckFrequency;
+export default AssignmentAmount;
