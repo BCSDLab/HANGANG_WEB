@@ -1,16 +1,14 @@
 import React from 'react';
-import ReviewTitle from '../shared/ReviewTitle';
+import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
+import Comment from '@components/LectureReview/Comment/Comment';
 import Stars from './Stars/Stars';
 
-type PropType = {
-  metadata: { id: number; value: string }[];
-};
-
-const TotalReview = ({ metadata }: PropType) => {
+const TotalReview = () => {
   return (
     <section>
       <ReviewTitle title="총평" />
-      <Stars metadata={metadata} />
+      <Stars />
+      <Comment />
     </section>
   );
 };

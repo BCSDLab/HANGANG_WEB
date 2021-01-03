@@ -1,14 +1,14 @@
-import React from 'react';
-import FullStarSVG from 'public/star-full.svg';
-import HalfStarSVG from 'public/star-half.svg';
-import EmptyStarSVG from 'public/star-empty.svg';
-import { StarContainer } from './StarStyle';
+import React, { forwardRef } from 'react';
+import FullStarSVG from '@assets/svg/star-full.svg';
+import HalfStarSVG from '@assets/svg/star-half.svg';
+import EmptyStarSVG from '@assets/svg/star-empty.svg';
+import { StarContainer } from './Star.style';
 
 type PropType = {
   starData: { id: number; value: string };
 };
 
-const Star = ({ starData: { value } }: PropType) => {
+const Star = forwardRef<PropType, HTMLUListElement>(({ value }, ref) => {
   let STAR;
   switch (value) {
     case 'full':
@@ -23,6 +23,15 @@ const Star = ({ starData: { value } }: PropType) => {
     default:
       throw new Error('Star State is not proper');
   }
-  return <StarContainer>{STAR}</StarContainer>;
-};
+  return (
+    <StarContainer
+      onClick={(e) => {
+        console.log(e.nativeEvent.offsetX);
+        console.log(ref.offsetLeft);
+      }}
+    >
+      {STAR}
+    </StarContainer>
+  );
+});
 export default Star;

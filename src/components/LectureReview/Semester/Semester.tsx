@@ -1,7 +1,7 @@
 import React from 'react';
-import DownArrowSVG from 'public/chevron-down.svg';
-import { SemesterBorder, SemesterText } from './SemesterStyle';
-import ReviewTitle from '../shared/ReviewTitle';
+import DownArrowSVG from '@assets/svg/chevron-down.svg';
+import { SemesterBorder, SemesterText } from './Semester.style';
+import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 
 const Semester = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CommentContainer, CommentBox } from './CommentStyle';
+import { CommentContainer, CommentBox } from './Comment.style';
 
 const Comment = () => {
   return (

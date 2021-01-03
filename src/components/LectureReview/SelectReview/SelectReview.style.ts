@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as style from '../../../utils/css-util';
+import * as style from '@utils/css-util';
 
 type StylePropType = {
   selected: boolean;
