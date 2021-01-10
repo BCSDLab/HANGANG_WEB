@@ -5,7 +5,7 @@ type StylePropType = {
   isComplete : boolean;
 }
 
-export const SubmitButton = styled.button<StylePropType>`
+const SubmitButton = styled.button<StylePropType>`
   display: block;
   margin: auto;
   margin-top : 30px;
@@ -21,3 +21,5 @@ export const SubmitButton = styled.button<StylePropType>`
   cursor: ${({ isComplete }) => (isComplete ? 'pointer' : 'default')};
 
 `;
+
+export default SubmitButton;

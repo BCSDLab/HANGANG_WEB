@@ -3,7 +3,7 @@ import DownArrowSVG from '@assets/svg/chevron-down.svg';
 import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 import { SemesterBorder, SemesterText } from './Semester.style';
 
-const Semester = () => (
+const Semester : React.FC = () => (
   <div>
     <ReviewTitle title="수강학기" />
     <SemesterBorder>

@@ -6,11 +6,9 @@ import React, {
 import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 import SelectReview from '@components/LectureReview/SelectReview/SelectReview';
 
-export type hashTagRefType = {
+export type HashTagRefType = {
   selectedReview: number[];
 };
-
-type PropsType = {};
 
 const review = [
   { id: 1, value: '#그저그러함', selected: true },
@@ -24,7 +22,7 @@ const review = [
   { id: 9, value: '#조금아쉬움', selected: false },
 ];
 
-const HashTag = forwardRef<hashTagRefType, PropsType>((_props, ref) => {
+const HashTag = forwardRef<HashTagRefType>((_props, ref) => {
   const [selectedReview, setSelectedReview] = useState([1]);
 
   const select = (selectedId : number) => {

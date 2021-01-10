@@ -1,4 +1,4 @@
-import React, { 
+import React, {
   useState,
   forwardRef,
   useImperativeHandle,
@@ -6,7 +6,7 @@ import React, {
 import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 import SelectReview from '@components/LectureReview/SelectReview/SelectReview';
 
-export type assignmentAmountRefType = {
+export type AssignmentAmountRefType = {
   selectedReview: number;
 };
 
@@ -16,7 +16,7 @@ const review = [
   { id: 3, value: '하' },
 ];
 
-const AssignmentAmount = forwardRef<assignmentAmountRefType, any>(
+const AssignmentAmount = forwardRef<AssignmentAmountRefType>(
   (_props, ref) => {
     const [selectedReview, setSelectedReview] = useState(1);
 
@@ -33,7 +33,12 @@ const AssignmentAmount = forwardRef<assignmentAmountRefType, any>(
       <div>
         <ReviewTitle title="과제량" />
         {review.map((data) => (
-          <SelectReview key={data.id} isSelected={selectedReview === data.id} reviewData={data} onSelect={select} />
+          <SelectReview
+            key={data.id}
+            isSelected={selectedReview === data.id}
+            reviewData={data}
+            onSelect={select}
+          />
         ))}
       </div>
     );

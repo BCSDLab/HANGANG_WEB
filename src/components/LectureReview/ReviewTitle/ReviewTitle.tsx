@@ -7,14 +7,18 @@ import {
 
 type PropType = {
   title: string;
-  metadata?: string;
+  metadata ?: string | null;
 };
 
-const ReviewTitle = ({ title, metadata }: PropType) => (
+const ReviewTitle : React.FC<PropType> = ({ title, metadata }) => (
   <ReviewTitleContainer>
     <ReviewTitleText>{title}</ReviewTitleText>
     {metadata && <ReviewTitleMetaData totalReview={metadata === '아직 작성이 완료되지 않았습니다.'}>{metadata}</ReviewTitleMetaData>}
   </ReviewTitleContainer>
 );
+
+ReviewTitle.defaultProps = {
+  metadata: '',
+};
 
 export default ReviewTitle;

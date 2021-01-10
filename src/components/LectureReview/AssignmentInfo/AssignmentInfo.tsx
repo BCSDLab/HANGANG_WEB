@@ -6,11 +6,9 @@ import React, {
 import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 import SelectReview from '@components/LectureReview/SelectReview/SelectReview';
 
-export type assignmentInfoRefType = {
+export type AssignmentInfoRefType = {
   selectedReview: number[];
 };
-
-type PropsType = {};
 
 const review = [
   { id: 1, value: '팀플' },
@@ -19,7 +17,7 @@ const review = [
   { id: 4, value: '퀴즈' },
 ];
 
-const AssignmentInfo = forwardRef<assignmentInfoRefType, PropsType>(
+const AssignmentInfo = forwardRef<AssignmentInfoRefType>(
   (_props, ref) => {
     const [selectedReview, setSelectedReview] = useState([1]);
 
@@ -40,7 +38,12 @@ const AssignmentInfo = forwardRef<assignmentInfoRefType, PropsType>(
       <div>
         <ReviewTitle title="과제정보" metadata="중복선택" />
         {review.map((data) => (
-          <SelectReview key={data.id} isSelected={selectedReview.some((id) => id === data.id)} reviewData={data} onSelect={select} />
+          <SelectReview
+            key={data.id}
+            isSelected={selectedReview.some((id) => id === data.id)}
+            reviewData={data}
+            onSelect={select}
+          />
         ))}
       </div>
     );

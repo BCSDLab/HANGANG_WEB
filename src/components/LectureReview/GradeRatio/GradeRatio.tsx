@@ -6,10 +6,9 @@ import React, {
 import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 import SelectReview from '@components/LectureReview/SelectReview/SelectReview';
 
-export type gradeRatioRefType = {
+export type GradeRatioRefType = {
   selectedReview : number;
 };
-type PropsType = {};
 
 const review = [
   { id: 1, value: '후하게주심' },
@@ -17,7 +16,7 @@ const review = [
   { id: 3, value: '아쉽게주심' },
 ];
 
-const GradeRatio = forwardRef<gradeRatioRefType, PropsType>((_props, ref) => {
+const GradeRatio = forwardRef<GradeRatioRefType>((_props, ref) => {
   const [selectedReview, setSelectedReview] = useState(1);
 
   const select = (selectedId : number) => {

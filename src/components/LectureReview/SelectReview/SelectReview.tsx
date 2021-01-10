@@ -8,9 +8,9 @@ type PropType = {
   onSelect: (id: number) => void;
 };
 
-const SelectReview = ({
+const SelectReview : React.FC<PropType> = ({
   largeWidth, isSelected, reviewData, onSelect,
-}: PropType) => {
+}) => {
   const selectOption = () => {
     onSelect(reviewData.id);
   };

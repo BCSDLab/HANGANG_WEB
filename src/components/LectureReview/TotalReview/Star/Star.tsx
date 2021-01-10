@@ -6,21 +6,17 @@ type PropType = {
   starReviewPoint: number;
 };
 
-const Star = ({ starReviewPoint }: PropType) => {
+const Star : React.FC<PropType> = ({ starReviewPoint }) => {
   const fullStarCount = Math.floor(starReviewPoint / 2);
   const fullStarArray = [];
-  for (let i = 0; i < fullStarCount; i++) {
-    fullStarArray.push(<FullStarSVG />);
+  for (let i = 1; i <= fullStarCount; i += 1) {
+    fullStarArray.push({ id: i, star: <FullStarSVG /> });
   }
-
-  const halfStarCount = starReviewPoint % 2 === 0 ? 0 : 1;
-  const halfStarArray = [];
-  if (halfStarCount === 1) halfStarArray.push(<HalfStarSVG />);
 
   return (
     <>
-      {fullStarArray.map((star, idx) => <React.Fragment key={idx}>{star}</React.Fragment>)}
-      {halfStarArray.map((star, idx) => <React.Fragment key={idx}>{star}</React.Fragment>)}
+      {fullStarArray.map(({ id, star }) => <React.Fragment key={id}>{star}</React.Fragment>)}
+      {starReviewPoint % 2 === 1 && <HalfStarSVG />}
     </>
   );
 };
