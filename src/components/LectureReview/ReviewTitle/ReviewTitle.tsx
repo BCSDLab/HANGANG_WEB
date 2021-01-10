@@ -10,13 +10,11 @@ type PropType = {
   metadata?: string;
 };
 
-const ReviewTitle = ({ title, metadata }: PropType) => {
-  return (
-    <ReviewTitleContainer>
-      <ReviewTitleText>{title}</ReviewTitleText>
-      {metadata && <ReviewTitleMetaData>{metadata}</ReviewTitleMetaData>}
-    </ReviewTitleContainer>
-  );
-};
+const ReviewTitle = ({ title, metadata }: PropType) => (
+  <ReviewTitleContainer>
+    <ReviewTitleText>{title}</ReviewTitleText>
+    {metadata && <ReviewTitleMetaData totalReview={metadata === '아직 작성이 완료되지 않았습니다.'}>{metadata}</ReviewTitleMetaData>}
+  </ReviewTitleContainer>
+);
 
 export default ReviewTitle;

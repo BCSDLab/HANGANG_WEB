@@ -1,37 +1,28 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import FullStarSVG from '@assets/svg/star-full.svg';
 import HalfStarSVG from '@assets/svg/star-half.svg';
-import EmptyStarSVG from '@assets/svg/star-empty.svg';
-import { StarContainer } from './Star.style';
 
 type PropType = {
-  starData: { id: number; value: string };
+  starReviewPoint: number;
 };
 
-const Star = forwardRef<PropType, HTMLUListElement>(({ value }, ref) => {
-  let STAR;
-  switch (value) {
-    case 'full':
-      STAR = <FullStarSVG />;
-      break;
-    case 'half':
-      STAR = <HalfStarSVG />;
-      break;
-    case 'empty':
-      STAR = <EmptyStarSVG />;
-      break;
-    default:
-      throw new Error('Star State is not proper');
+const Star = ({ starReviewPoint }: PropType) => {
+  const fullStarCount = Math.floor(starReviewPoint / 2);
+  const fullStarArray = [];
+  for (let i = 0; i < fullStarCount; i++) {
+    fullStarArray.push(<FullStarSVG />);
   }
+
+  const halfStarCount = starReviewPoint % 2 === 0 ? 0 : 1;
+  const halfStarArray = [];
+  if (halfStarCount === 1) halfStarArray.push(<HalfStarSVG />);
+
   return (
-    <StarContainer
-      onClick={(e) => {
-        console.log(e.nativeEvent.offsetX);
-        console.log(ref.offsetLeft);
-      }}
-    >
-      {STAR}
-    </StarContainer>
+    <>
+      {fullStarArray.map((star, idx) => <React.Fragment key={idx}>{star}</React.Fragment>)}
+      {halfStarArray.map((star, idx) => <React.Fragment key={idx}>{star}</React.Fragment>)}
+    </>
   );
-});
+};
+
 export default Star;

@@ -1,29 +1,29 @@
-import React, { memo } from 'react';
-import { ReviewButton } from './SelectReview.style';
+import React from 'react';
+import { ReviewLabel, ReviewInput } from './SelectReview.style';
 
 type PropType = {
   largeWidth?: boolean;
-  reviewData: { id: number; value: string; selected: boolean };
-  onSelect: (metadata: {
-    id: number;
-    value: string;
-    selected: boolean;
-  }) => void;
+  isSelected : boolean;
+  reviewData: { id: number; value: string };
+  onSelect: (id: number) => void;
 };
 
-const SelectReview = memo(({ largeWidth, reviewData, onSelect }: PropType) => {
+const SelectReview = ({
+  largeWidth, isSelected, reviewData, onSelect,
+}: PropType) => {
   const selectOption = () => {
-    onSelect(reviewData);
+    onSelect(reviewData.id);
   };
-  console.log('SelectReview Update');
+
   return (
-    <ReviewButton
-      onClick={selectOption}
-      selected={reviewData.selected}
+    <ReviewLabel
+      onChange={selectOption}
+      selected={isSelected}
       largeWidth={largeWidth}
     >
+      <ReviewInput type="checkbox" />
       {reviewData.value}
-    </ReviewButton>
+    </ReviewLabel>
   );
-});
+};
 export default SelectReview;

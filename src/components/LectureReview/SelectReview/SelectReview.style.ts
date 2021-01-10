@@ -6,27 +6,23 @@ type StylePropType = {
   largeWidth?: boolean;
 };
 
-export const ReviewButton = styled.button<StylePropType>`
-  width: ${({ largeWidth }) => {
-    if (largeWidth) return '154px';
-    return '104px';
-  }};
-  height: 32px;
-  margin: 16px 0 32px 16px;
-  border-radius: 20px;
+export const ReviewLabel = styled.label<StylePropType>`
+  display:inline-block;
+  width: ${({ largeWidth }) => (largeWidth ? '30%' : '104px')};
+  height: 45px;
+  margin: 16px 8px 32px 8px;
+  border-radius: 25px;
   border: none;
-  background-color: ${({ selected }) => {
-    if (selected) return style.mainColor;
-    return style.greyBackgroundColor;
-  }};
-  color: ${({ selected }) => {
-    if (selected) return style.whiteColor;
-    return style.mainFontColor;
-  }};
-  font-size: ${style.fontSize};
+  background-color: ${({ selected }) => (selected ? style.mainColor : style.greyBackgroundColor)};
+  color: ${({ selected }) => (selected ? style.whiteColor : style.mainFontColor)};
+  font-size: 18px;
   font-family: ${style.defaultFontFamily};
   outline: none;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
+  text-align: center;
+  line-height: 45px;
+`;
+
+export const ReviewInput = styled.input`
+  display: none;
 `;
