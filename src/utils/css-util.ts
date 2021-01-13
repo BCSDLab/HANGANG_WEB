@@ -16,3 +16,5 @@ export const greyFontColor = '#999999';
 export const greyBackgroundColor = '#EEEEEE';
 
 export const whiteColor = '#FFFFFF';
+
+export const orangeColor = '#FFAB2E';
