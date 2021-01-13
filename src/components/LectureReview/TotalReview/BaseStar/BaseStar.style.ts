@@ -1,10 +1,14 @@
 import styled from 'styled-components';
+import EmptyStarSVG from '@assets/svg/star-empty.svg';
 
-const BaseStarsBox = styled.div`
+export const BaseStarsBox = styled.div`
   width: 300px;
   height: 60px;
   position: absolute;
   cursor: pointer;
 `;
 
-export default BaseStarsBox;
+export const BaseEmptyStarSVG = styled(EmptyStarSVG)`
+  width: 60px;
+  height: 60px;
+`;

@@ -3,10 +3,11 @@ import React, {
 } from 'react';
 import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 import Submit from '@components/LectureReview/TotalReview/SubmitButton/Submit';
-import { CommentContainer, CommentBox } from './TotalReviewComment.style';
+import CommentBox from './TotalReviewComment.style';
 import { StarsContainer, StarsBox } from './TotalReviewStars.style';
 import Star from './Star/Star';
 import BaseStar from './BaseStar/BaseStar';
+import LectureReviewCommentPlaceholder from '../../../style/style';
 
 const HALFSTARWIDTH = 30;
 
@@ -35,7 +36,7 @@ const TotalReview = forwardRef<TotalRefType>((_props, ref) => {
   };
 
   return (
-    <div>
+    <>
       <ReviewTitle title="총평" metadata={!commentReview ? '아직 작성이 완료되지 않았습니다.' : null} />
       <StarsContainer className="container">
         <BaseStar />
@@ -43,18 +44,16 @@ const TotalReview = forwardRef<TotalRefType>((_props, ref) => {
           <Star starReviewPoint={starReview} />
         </StarsBox>
       </StarsContainer>
-      <CommentContainer>
-        <CommentBox
-          value={commentReview}
-          ref={commentRef}
-          rows={5}
-          cols={33}
-          placeholder="이 강의에 대한 총평을 자유롭게 적어주세요!&#13;&#10;(시험정보, 과제정보, 팁 등)&#13;&#10;허위사실이나 지나친 비방 내용을 작성할 시,&#13;&#10;승인이 불가할 수 있습니다."
-          onChange={onChangeCommentHandler}
-        />
-      </CommentContainer>
+      <CommentBox
+        value={commentReview}
+        ref={commentRef}
+        rows={5}
+        cols={33}
+        placeholder={LectureReviewCommentPlaceholder}
+        onChange={onChangeCommentHandler}
+      />
       <Submit isComplete={!!commentReview} />
-    </div>
+    </>
   );
 });
 

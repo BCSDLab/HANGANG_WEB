@@ -1,5 +1,5 @@
 import * as React from 'react';
-import LectureReview from '../view/LectureReview/LectureReview';
+import LectureReview from '@views/LectureReview/LectureReview';
 
 const index = () => {
   return (

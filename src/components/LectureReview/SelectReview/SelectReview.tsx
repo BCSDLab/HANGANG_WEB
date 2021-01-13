@@ -4,26 +4,25 @@ import { ReviewLabel, ReviewInput } from './SelectReview.style';
 type PropType = {
   largeWidth?: boolean;
   isSelected : boolean;
-  reviewData: { id: number; value: string };
+  reviewId: number;
   onSelect: (id: number) => void;
 };
 
 const SelectReview : React.FC<PropType> = ({
-  largeWidth, isSelected, reviewData, onSelect,
-}) => {
-  const selectOption = () => {
-    onSelect(reviewData.id);
-  };
-
-  return (
-    <ReviewLabel
-      onChange={selectOption}
-      selected={isSelected}
-      largeWidth={largeWidth}
-    >
-      <ReviewInput type="checkbox" />
-      {reviewData.value}
-    </ReviewLabel>
-  );
-};
+  largeWidth, isSelected, reviewId, onSelect, children,
+}) => (
+  <ReviewLabel
+    selected={isSelected}
+    largeWidth={largeWidth}
+  >
+    <ReviewInput
+      type="checkbox"
+      value={reviewId}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+        onSelect(+e.target.value);
+      }}
+    />
+    {children}
+  </ReviewLabel>
+);
 export default SelectReview;

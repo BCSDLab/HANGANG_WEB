@@ -1,14 +1,13 @@
 import React from 'react';
-import EmptyStarSVG from '@assets/svg/star-empty.svg';
-import BaseStarsBox from './BaseStar.style';
+import { BaseStarsBox, BaseEmptyStarSVG } from './BaseStar.style';
 
 const BaseStar : React.FC = () => (
   <BaseStarsBox>
-    <EmptyStarSVG />
-    <EmptyStarSVG />
-    <EmptyStarSVG />
-    <EmptyStarSVG />
-    <EmptyStarSVG />
+    <BaseEmptyStarSVG />
+    <BaseEmptyStarSVG />
+    <BaseEmptyStarSVG />
+    <BaseEmptyStarSVG />
+    <BaseEmptyStarSVG />
   </BaseStarsBox>
 );
 

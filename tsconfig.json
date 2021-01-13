@@ -23,7 +23,7 @@
       "@utils/*": ["./src/utils/*"],
       "@views/*": ["./src/views/*"],
       "@assets/*": ["./src/assets/*"],
-      "@types/*": ["./src/types/*"]
+      "@types/*": ["./src/types/*"],
     }
   },
   "exclude": ["node_modules"],

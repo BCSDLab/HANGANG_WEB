@@ -7,7 +7,7 @@ export const StarsContainer = styled.div`
   width: 400px;
   height: 60px;
   margin: auto;
-  padding: 30px 0;   
+  padding-bottom: 16px;  
 
 `;
 

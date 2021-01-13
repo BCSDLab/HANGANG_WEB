@@ -5,6 +5,7 @@ import React, {
 } from 'react';
 import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 import SelectReview from '@components/LectureReview/SelectReview/SelectReview';
+import CheckFrequencyContainer from './CheckFrequency.style';
 
 export type CheckFrequencyRefType = {
   selectedReview : number;
@@ -30,17 +31,21 @@ const CheckFrequency = forwardRef<CheckFrequencyRefType>(
     }), [selectedReview]);
 
     return (
-      <div>
+      <>
         <ReviewTitle title="출첵빈도" />
-        {review.map((data) => (
-          <SelectReview
-            key={data.id}
-            isSelected={selectedReview === data.id}
-            reviewData={data}
-            onSelect={select}
-          />
-        ))}
-      </div>
+        <CheckFrequencyContainer>
+          {review.map((data) => (
+            <SelectReview
+              key={data.id}
+              isSelected={selectedReview === data.id}
+              reviewId={data.id}
+              onSelect={select}
+            >
+              {data.value}
+            </SelectReview>
+          ))}
+        </CheckFrequencyContainer>
+      </>
     );
   },
 );

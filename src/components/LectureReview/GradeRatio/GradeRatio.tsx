@@ -5,6 +5,7 @@ import React, {
 } from 'react';
 import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 import SelectReview from '@components/LectureReview/SelectReview/SelectReview';
+import GradeRatioContainer from './GradeRatio.style';
 
 export type GradeRatioRefType = {
   selectedReview : number;
@@ -27,18 +28,22 @@ const GradeRatio = forwardRef<GradeRatioRefType>((_props, ref) => {
     selectedReview,
   }), [selectedReview]);
   return (
-    <div>
+    <>
       <ReviewTitle title="성적비율" />
-      {review.map((data) => (
-        <SelectReview
-          key={data.id}
-          isSelected={selectedReview === data.id}
-          reviewData={data}
-          onSelect={select}
-          largeWidth
-        />
-      ))}
-    </div>
+      <GradeRatioContainer>
+        {review.map((data) => (
+          <SelectReview
+            key={data.id}
+            isSelected={selectedReview === data.id}
+            reviewId={data.id}
+            onSelect={select}
+            largeWidth
+          >
+            {data.value}
+          </SelectReview>
+        ))}
+      </GradeRatioContainer>
+    </>
   );
 });
 

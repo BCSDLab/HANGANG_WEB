@@ -5,6 +5,7 @@ import React, {
 } from 'react';
 import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 import SelectReview from '@components/LectureReview/SelectReview/SelectReview';
+import AssignmentInfoContainer from './AssignmentInfo.style';
 
 export type AssignmentInfoRefType = {
   selectedReview: number[];
@@ -35,17 +36,21 @@ const AssignmentInfo = forwardRef<AssignmentInfoRefType>(
     }), [selectedReview]);
 
     return (
-      <div>
+      <>
         <ReviewTitle title="과제정보" metadata="중복선택" />
-        {review.map((data) => (
-          <SelectReview
-            key={data.id}
-            isSelected={selectedReview.some((id) => id === data.id)}
-            reviewData={data}
-            onSelect={select}
-          />
-        ))}
-      </div>
+        <AssignmentInfoContainer>
+          {review.map((data) => (
+            <SelectReview
+              key={data.id}
+              isSelected={selectedReview.includes(data.id)}
+              reviewId={data.id}
+              onSelect={select}
+            >
+              {data.value}
+            </SelectReview>
+          ))}
+        </AssignmentInfoContainer>
+      </>
     );
   },
 );

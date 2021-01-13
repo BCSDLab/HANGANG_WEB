@@ -10,7 +10,8 @@ export const ReviewLabel = styled.label<StylePropType>`
   display:inline-block;
   width: ${({ largeWidth }) => (largeWidth ? '30%' : '104px')};
   height: 45px;
-  margin: 16px 8px 32px 8px;
+  margin-right: 16px;
+  margin-bottom: 16px;
   border-radius: 25px;
   border: none;
   background-color: ${({ selected }) => (selected ? style.mainColor : style.greyBackgroundColor)};

@@ -1,6 +1,7 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import ReviewTitle from '@components/LectureReview/ReviewTitle/ReviewTitle';
 import SelectReview from '@components/LectureReview/SelectReview/SelectReview';
+import TestDifficultyContainer from './TestDifficulty.style';
 
 export type TestDifficultyRefType = {
   selectedReview : number;
@@ -25,17 +26,21 @@ const TestDifficulty = forwardRef<TestDifficultyRefType>(
     }), [selectedReview]);
 
     return (
-      <div>
+      <>
         <ReviewTitle title="시험 난이도" />
-        {review.map((data) => (
-          <SelectReview
-            key={data.id}
-            isSelected={selectedReview === data.id}
-            reviewData={data}
-            onSelect={select}
-          />
-        ))}
-      </div>
+        <TestDifficultyContainer>
+          {review.map((data) => (
+            <SelectReview
+              key={data.id}
+              isSelected={selectedReview === data.id}
+              reviewId={data.id}
+              onSelect={select}
+            >
+              {data.value}
+            </SelectReview>
+          ))}
+        </TestDifficultyContainer>
+      </>
     );
   },
 );
