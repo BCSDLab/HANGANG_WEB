@@ -6,6 +6,7 @@ import LinkWithImageSwiper, { ISwiperItem } from '@components/LecturePages/Lectu
 import * as S from '@views/LecturePages/LectureDetailPages/LectureDetailPage.style';
 import LectureCommentList from '@components/LecturePages/LectureDetailPage/LectureCommentList/LectureCommentList';
 import TimetableInfoSection from '@components/LecturePages/LectureDetailPage/TimetableInfoSection/TimetableInfoSection';
+import RateBarChart from '@components/LecturePages/LectureDetailPage/RateBarChart/RateBarChart';
 
 interface IProps {
   lecture: {
@@ -88,7 +89,7 @@ const LectureDetailPage: NextPage<IProps> = ({
     <TimetableInfoSection credit={lecture.credit} timetable={lecture.timetable} />
     <S.EvaluationInfoContainer>
       <S.EvaluationInfoTitle>종합 평가</S.EvaluationInfoTitle>
-      <S.EvaluationGraphContainer>.</S.EvaluationGraphContainer>
+      <RateBarChart />
       <S.EvaluationText>
         <S.EvaluationContainer>
           <S.EvaluationDesc>출첵빈도</S.EvaluationDesc>

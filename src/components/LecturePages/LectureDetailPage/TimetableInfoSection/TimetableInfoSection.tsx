@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const useToggle = (): [boolean, () => void] => {
-  const [toggle, setToggle] = React.useState(false);
+  const [toggle, setToggle] = React.useState(true);
   return [toggle, () => setToggle((state) => !state)];
 };
 
