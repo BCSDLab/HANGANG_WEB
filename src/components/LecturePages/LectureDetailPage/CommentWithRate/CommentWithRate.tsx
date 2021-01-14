@@ -1,15 +1,18 @@
 import React from 'react';
 
 import * as S from '@components/LecturePages/LectureDetailPage/CommentWithRate/CommentWithRate.style';
+import RateDisplay from '@components/Shared/RateDisplay/RateDisplay';
 
 interface IProps {
   title: string;
+  rate: number;
   subInfoDesc: string;
   action?: React.ReactNode;
 }
 
 const CommentWithRate: React.FC<IProps> = ({
   title,
+  rate,
   subInfoDesc,
   action,
   children,
@@ -19,6 +22,7 @@ const CommentWithRate: React.FC<IProps> = ({
       <S.Title>
         { title }
       </S.Title>
+      <RateDisplay rate={rate} />
     </S.FirstRow>
     <S.Row>
       <S.RowDesc>{subInfoDesc}</S.RowDesc>
