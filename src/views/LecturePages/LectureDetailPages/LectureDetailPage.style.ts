@@ -2,9 +2,10 @@ import styled, { css } from 'styled-components';
 import {
   defaultFontFamily,
   greyBackgroundColor,
-  greyFontColor, mainColor,
+  greyFontColor,
+  mainColor,
   mainFontColor,
-  mobileQuery, orangeColor, whiteColor,
+  mobileQuery,
 } from '@utils/css-util';
 import BookmarkSVG from '@assets/svg/bookmark.svg';
 
@@ -119,86 +120,6 @@ export const BookmarkButton = styled.button<IBookmarkButton>`
   
   ${mobileQuery} {
     margin-top: auto;
-  }
-`;
-
-export const TimetableInfoContainer = styled.div`
-  ${mobileQuery} {
-    height: 90px;
-    padding: 16px 16px 13px;
-    border-bottom: 1px solid ${greyBackgroundColor};
-  }
-`;
-
-export const TimetableTitle = styled.h2`
-  margin: 0;
-  color: ${mainFontColor};
-  
-  ${mobileQuery} {
-    margin-bottom: 16px;
-    font: normal bold 16px/24px ${defaultFontFamily};
-  }
-`;
-
-export const TimetableInfo = styled.div`
-  
-  ${mobileQuery} {
-    display: flex;
-  }
-`;
-
-export const TimetableInfoContent = styled.div`
-
-  ${mobileQuery} {
-    flex: 1 1 auto;
-  }
-`;
-
-export const TimetableInfoContentRow = styled.div`
-  font: normal 14px/21px ${defaultFontFamily};
-  
-  ${mobileQuery} {
-    margin-bottom: 8px;
-    
-    :last-child {
-      margin-bottom: 0;
-    }
-  }
-`;
-
-export const TimetableInfoContentTitle = styled.span`
-  color: ${greyFontColor};
-
-  ${mobileQuery} {
-    display: inline-block;
-    margin-right: 8px;
-  }
-`;
-
-export const TimetableInfoToggleButton = styled.a`
-  width: 18px;
-  height: 18px;
-  margin: auto 0 0;
-  text-decoration: none;
-  cursor: pointer;
-`;
-
-export const TimetableRemoveButton = styled.button`
-  height: 28px;
-  margin: auto 0 5px;
-  padding: 5px 16px;
-  border: 0;
-  border-radius: 20px;
-  background: ${orangeColor};
-  font: normal 12px/18px ${defaultFontFamily};
-  color: ${whiteColor};
-`;
-
-export const TimetableEmptyInfo = styled.div`
-  ${mobileQuery} {
-    font: normal 14px/50px ${defaultFontFamily};
-    color: ${greyFontColor};
-    text-align: center;
   }
 `;
 

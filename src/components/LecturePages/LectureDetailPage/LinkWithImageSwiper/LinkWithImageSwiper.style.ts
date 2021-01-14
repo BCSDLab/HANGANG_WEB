@@ -4,8 +4,8 @@ import {
 } from '@utils/css-util';
 
 export const SwiperContainer = styled.div`
-  width: 100%;
   overflow: auto;
+  width: 100%;
 `;
 
 export const SwiperItemContainer = styled.ul`
@@ -18,11 +18,11 @@ export const SwiperItemContainer = styled.ul`
 
 export const SwiperItem = styled.li`
   flex: 0 0 auto;
-  list-style: none none;
   width: 90px;
   height: 112px;
   margin: 0 8px 0 0;
   padding: 0;
+  list-style: none none;
   
   :last-child {
     margin: 0;
@@ -45,10 +45,10 @@ export const ItemImage = styled.img`
 `;
 
 export const ItemDesc = styled.div`
+  overflow: hidden;
   width: 100%;
   color: ${mainFontColor};
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   
   ${mobileQuery} {

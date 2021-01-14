@@ -37,12 +37,12 @@ const FullStar = styled.div<IActiveObject>`
 `;
 
 const HalfStar = styled.div<IActiveObject>`
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
   width: 50%;
   height: 100%;
-  overflow: hidden;
   ${(props) => (props.active ? css`
     > ${StarIcon} > path {
       fill: ${yellowColor};

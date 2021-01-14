@@ -52,6 +52,7 @@ const LectureCommentList: React.FC = () => {
       </S.TitleRow>
       <CommentWithRate
         title={isSemester(tempSemester) ? parseSemester(tempSemester) : ''}
+        rate={5}
         subInfoDesc="과제정보"
         action={(
           <S.CommentActionRow>

@@ -4,8 +4,8 @@ import { GetServerSideProps, NextPage } from 'next';
 import DefaultLayout from '@components/Shared/DefaultLayout/DefaultLayout';
 import LinkWithImageSwiper, { ISwiperItem } from '@components/LecturePages/LectureDetailPage/LinkWithImageSwiper/LinkWithImageSwiper';
 import * as S from '@views/LecturePages/LectureDetailPages/LectureDetailPage.style';
-import DownPointingPathSVG from '@assets/svg/down_pointing_path.svg';
 import LectureCommentList from '@components/LecturePages/LectureDetailPage/LectureCommentList/LectureCommentList';
+import TimetableInfoSection from '@components/LecturePages/LectureDetailPage/TimetableInfoSection/TimetableInfoSection';
 
 interface IProps {
   lecture: {
@@ -13,6 +13,10 @@ interface IProps {
     title: string;
     type: string;
     lecturer: string;
+    timetable?: Array<{
+      timeInfo: string;
+      division: number;
+    }>
     semester: Array<string>;
     credit: number;
     time?: string;
@@ -28,6 +32,11 @@ export const getServerSideProps: GetServerSideProps<IProps> = async () => {
     type: '교양필수',
     lecturer: '김사랑',
     semester: ['2019-2', '2020-1', '2020-2'],
+    timetable: [
+      { timeInfo: '월 1A~3B', division: 1 },
+      { timeInfo: '화 1A~3B', division: 2 },
+      { timeInfo: '수 1A~3B', division: 3 },
+    ],
     credit: 22,
     material: Array.from({ length: 7 }).map((_, index) => ({
       to: `materials/${index}`,
@@ -43,6 +52,7 @@ export const getServerSideProps: GetServerSideProps<IProps> = async () => {
         title: data.title,
         type: data.type,
         lecturer: data.lecturer,
+        timetable: data.timetable,
         semester: data.semester,
         credit: data.credit,
       },
@@ -75,29 +85,7 @@ const LectureDetailPage: NextPage<IProps> = ({
         </S.BookmarkButton>
       </S.DetailInfoLastRow>
     </S.DetailInfoContainer>
-    <S.TimetableInfoContainer>
-      <S.TimetableTitle>
-        시간표 정보
-      </S.TimetableTitle>
-      {lecture.credit ? ( // TODO: change to fit API
-        <S.TimetableInfo>
-          <S.TimetableInfoContent>
-            <S.TimetableInfoContentRow>
-              <S.TimetableInfoContentTitle>학점</S.TimetableInfoContentTitle>
-              {lecture.credit}
-              학점
-            </S.TimetableInfoContentRow>
-            <S.TimetableInfoContentRow>
-              <S.TimetableInfoContentTitle>시간</S.TimetableInfoContentTitle>
-              분반과 시간을 확인하세요.
-            </S.TimetableInfoContentRow>
-          </S.TimetableInfoContent>
-          <S.TimetableInfoToggleButton>
-            <DownPointingPathSVG />
-          </S.TimetableInfoToggleButton>
-        </S.TimetableInfo>
-      ) : <S.TimetableEmptyInfo>시간표 정보가 없습니다</S.TimetableEmptyInfo>}
-    </S.TimetableInfoContainer>
+    <TimetableInfoSection credit={lecture.credit} timetable={lecture.timetable} />
     <S.EvaluationInfoContainer>
       <S.EvaluationInfoTitle>종합 평가</S.EvaluationInfoTitle>
       <S.EvaluationGraphContainer>.</S.EvaluationGraphContainer>
