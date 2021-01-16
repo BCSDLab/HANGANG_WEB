@@ -61,6 +61,6 @@ const Star: React.FC<IProps> = ({
     <HalfStar active={fill > 0}><StarIcon /></HalfStar>
     <FullStar active={fill === 2}><StarIcon /></FullStar>
   </Container>
-)
+);
 
 export default Star;

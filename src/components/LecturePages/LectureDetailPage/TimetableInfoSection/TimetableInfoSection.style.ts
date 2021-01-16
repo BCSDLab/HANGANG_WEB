@@ -8,6 +8,7 @@ import {
   orangeColor,
   whiteColor,
 } from '@utils/css-util';
+import DownPointingSVG from '@assets/svg/down_pointing_path.svg';
 
 export const Container = styled.div`
   ${mobileQuery} {
@@ -62,12 +63,22 @@ export const ContentTitle = styled.span`
   }
 `;
 
-export const TimeInfoToggleButton = styled.a`
+export const TimeInfoToggleButton = styled.button`
   width: 18px;
   height: 18px;
   margin: auto 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
   text-decoration: none;
   cursor: pointer;
+`;
+
+export const TimeInfoToggleButtonIcon = styled(DownPointingSVG)`
+  > path {
+    stroke-width: 2px;
+    stroke: ${greyFontColor};
+  }
 `;
 
 interface ICollapsedElement {

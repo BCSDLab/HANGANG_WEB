@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import {
   defaultFontFamily, greyFontColor, mainColor, mainFontColor, mobileQuery,
 } from '@utils/css-util';
-import DownPointingSVG from '@assets/svg/down_pointing_path.svg';
 import ThumbUpSVG from '@assets/svg/thumb-up.svg';
 
 export const SectionContainer = styled.div`
@@ -29,57 +28,6 @@ export const Title = styled.h2`
     font: normal bold 16px/24px ${defaultFontFamily};
     color: ${mainFontColor};
   }
-`;
-
-export const SelectContainer = styled.div`
-  ${mobileQuery} {
-    position: relative;
-    width: 70px;
-    height: 24px;
-    border: 0;
-    font: normal 12px/18px ${defaultFontFamily};
-    color: ${mainFontColor};
-    appearance: none;
-    cursor: pointer;
-  }
-`;
-
-export const Select = styled.select`
-  ${mobileQuery} {
-    width: 70px;
-    height: 24px;
-    padding-right: 10px;
-    border: 0;
-    font: normal 12px/18px ${defaultFontFamily};
-    color: ${mainFontColor};
-    appearance: none;
-    cursor: pointer;
-  }
-`;
-
-export const SelectorIconContainer = styled.span.attrs({
-  'aria-hidden': 'true',
-})`
-  ${mobileQuery} {
-    display: inline-block;
-    position: absolute;
-    top: 5px;
-    right: 0;
-    width: 12px;
-    height: 12px;
-    margin: 0;
-    padding: 0;
-  }
-`;
-
-export const SelectorIcon = styled(DownPointingSVG)`
-  ${mobileQuery} {
-    width: 12px;
-    height: 12px;
-  }
-`;
-
-export const Option = styled.option`
 `;
 
 export const CommentActionRow = styled.div`

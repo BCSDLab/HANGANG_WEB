@@ -27,7 +27,7 @@ const RateBarChart: React.FC = () => {
     range: [barYMobileMax - 1, 0],
     round: true,
   });
-  const parcitipant = tempData.reduce((acc, cur) => (acc + cur), 0);
+  const participant = tempData.reduce((acc, cur) => (acc + cur), 0);
 
   return (
     <S.Container>
@@ -38,10 +38,7 @@ const RateBarChart: React.FC = () => {
       <S.ChartContainer>
         <Group top={16} left={0}>
           {tempData.map((data, index) => {
-            const barWidth = axisScale.bandwidth();
             const barHeight = barYMobileMax - (dataScale(data) ?? 0);
-            const barX = axisScale(axisData[index]);
-            console.log(index, barWidth, barX);
             const barY = barYMobileMax - barHeight;
             return (
               <Bar
@@ -73,7 +70,7 @@ const RateBarChart: React.FC = () => {
       <S.Participant>
         전체 평가 수
         <br />
-        {parcitipant}
+        {participant}
         명
       </S.Participant>
     </S.Container>

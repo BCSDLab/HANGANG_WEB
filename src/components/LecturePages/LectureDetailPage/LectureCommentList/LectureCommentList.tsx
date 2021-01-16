@@ -2,9 +2,10 @@ import React from 'react';
 
 import * as S from '@components/LecturePages/LectureDetailPage/LectureCommentList/LectureCommentList.style';
 import CommentWithRate from '@components/LecturePages/LectureDetailPage/CommentWithRate/CommentWithRate';
+import Select from '@components/Shared/Select';
 
-const sortTypeList = ['좋아요 순', '최신 순'] as const;
-type SortType = typeof sortTypeList[number];
+const sortTypeList: Array<SortType> = ['좋아요 순', '최신 순'];
+type SortType = '좋아요 순' | '최신 순';
 
 const isSortType = (s: string): s is SortType => s === sortTypeList[0] || s === sortTypeList[1];
 
@@ -40,15 +41,12 @@ const LectureCommentList: React.FC = () => {
     <S.SectionContainer>
       <S.TitleRow>
         <S.Title>개인 평가 ()</S.Title>
-        <S.SelectContainer>
-          <S.Select value={sortType} onChange={handleChangeSortTypeSelect}>
-            <S.Option>좋아요 순</S.Option>
-            <S.Option>최신 순</S.Option>
-          </S.Select>
-          <S.SelectorIconContainer>
-            <S.SelectorIcon />
-          </S.SelectorIconContainer>
-        </S.SelectContainer>
+        <Select
+          variant="borderless"
+          value={sortType}
+          onChange={handleChangeSortTypeSelect}
+          options={sortTypeList}
+        />
       </S.TitleRow>
       <CommentWithRate
         title={isSemester(tempSemester) ? parseSemester(tempSemester) : ''}

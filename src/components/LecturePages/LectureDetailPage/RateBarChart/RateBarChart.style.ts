@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { blackColor100, defaultFontFamily, greyFontColor, mobileQuery } from '@utils/css-util';
+import {
+  blackColor100, defaultFontFamily, greyFontColor, mobileQuery,
+} from '@utils/css-util';
 
 export const Container = styled.div`
   display: flex;
