@@ -1,7 +1,7 @@
 import React from 'react';
 
-import * as S from '@components/LecturePages/LectureDetailPage/CommentWithRate/CommentWithRate.style';
-import RateDisplay from '@components/Shared/RateDisplay/RateDisplay';
+import RateDisplay from '@components/Shared/RateDisplay';
+import * as S from './CommentWithRate.style';
 
 interface IProps {
   title: string;

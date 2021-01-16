@@ -1,8 +1,8 @@
 import React from 'react';
 
-import * as S from '@components/LecturePages/LectureDetailPage/LectureCommentList/LectureCommentList.style';
-import CommentWithRate from '@components/LecturePages/LectureDetailPage/CommentWithRate/CommentWithRate';
+import CommentWithRate from '@components/LecturePages/LectureDetailPage/CommentWithRate';
 import Select from '@components/Shared/Select';
+import * as S from './LectureCommentList.style';
 
 const sortTypeList: Array<SortType> = ['좋아요 순', '최신 순'];
 type SortType = '좋아요 순' | '최신 순';

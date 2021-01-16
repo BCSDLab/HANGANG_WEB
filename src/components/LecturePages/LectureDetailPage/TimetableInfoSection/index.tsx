@@ -51,7 +51,7 @@ const TimetableInfoSection: React.FC<IProps> = ({
     targetAddDivision,
     handleDivisionButton,
     onCancelSelectTimetable,
-  } = useDivision([]);
+  } = useDivision([1]);
   return (
     <S.Container>
       <S.Title>
@@ -86,11 +86,12 @@ const TimetableInfoSection: React.FC<IProps> = ({
                   buttonType={currentDivision.includes(info.division) ? 'remove' : 'add'}
                   onClick={handleDivisionButton}
                 >
-                  담기
+                  {currentDivision.includes(info.division) ? '빼기' : '담기'}
                 </S.TimetableButton>
               </S.TimeInfo>
             )) : null}
           </S.TimeInfoContainer>
+          {/* TODO: Modal에 관련된 부분은 API가 나오고 진행해주세요. */}
           <Modal
             visible={false}
             title="시간표 중복"

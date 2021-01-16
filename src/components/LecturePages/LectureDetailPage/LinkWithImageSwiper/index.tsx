@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import * as S from '@components/LecturePages/LectureDetailPage/LinkWithImageSwiper/LinkWithImageSwiper.style';
+import * as S from './LinkWithImageSwiper.style';
 
 export interface ISwiperItem {
   to: string;

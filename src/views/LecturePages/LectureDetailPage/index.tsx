@@ -1,12 +1,12 @@
 import React from 'react';
 import { GetServerSideProps, NextPage } from 'next';
 
-import DefaultLayout from '@components/Shared/DefaultLayout/DefaultLayout';
-import LinkWithImageSwiper, { ISwiperItem } from '@components/LecturePages/LectureDetailPage/LinkWithImageSwiper/LinkWithImageSwiper';
-import * as S from '@views/LecturePages/LectureDetailPages/LectureDetailPage.style';
-import LectureCommentList from '@components/LecturePages/LectureDetailPage/LectureCommentList/LectureCommentList';
-import TimetableInfoSection from '@components/LecturePages/LectureDetailPage/TimetableInfoSection/TimetableInfoSection';
-import RateBarChart from '@components/LecturePages/LectureDetailPage/RateBarChart/RateBarChart';
+import DefaultLayout from '@components/Shared/DefaultLayout';
+import LinkWithImageSwiper, { ISwiperItem } from '@components/LecturePages/LectureDetailPage/LinkWithImageSwiper';
+import LectureCommentList from '@components/LecturePages/LectureDetailPage/LectureCommentList';
+import TimetableInfoSection from '@components/LecturePages/LectureDetailPage/TimetableInfoSection';
+import RateBarChart from '@components/LecturePages/LectureDetailPage/RateBarChart';
+import * as S from './LectureDetailPage.style';
 
 interface IProps {
   lecture: {
@@ -81,7 +81,7 @@ const LectureDetailPage: NextPage<IProps> = ({
           개설학기
           <S.OpeningSemester>{lecture.semester.join(', ')}</S.OpeningSemester>
         </S.OpeningSemesterDesc>
-        <S.BookmarkButton>
+        <S.BookmarkButton aria-pressed={false}>
           <S.BookmarkIcon />
         </S.BookmarkButton>
       </S.DetailInfoLastRow>
