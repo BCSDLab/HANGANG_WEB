@@ -4,12 +4,12 @@ import { ReviewLabel, ReviewInput } from './SelectReview.style';
 type PropType = {
   largeWidth?: boolean;
   isSelected : boolean;
+  onSelect : (e: React.ChangeEvent<HTMLInputElement>) => void;
   reviewId: number;
-  onSelect: (id: number) => void;
 };
 
 const SelectReview : React.FC<PropType> = ({
-  largeWidth, isSelected, reviewId, onSelect, children,
+  largeWidth, isSelected, onSelect, reviewId, children,
 }) => (
   <ReviewLabel
     selected={isSelected}
@@ -18,9 +18,7 @@ const SelectReview : React.FC<PropType> = ({
     <ReviewInput
       type="checkbox"
       value={reviewId}
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-        onSelect(+e.target.value);
-      }}
+      onChange={onSelect}
     />
     {children}
   </ReviewLabel>

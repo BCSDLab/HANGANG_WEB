@@ -4,8 +4,8 @@ import DownArrowSVG from '@assets/svg/chevron-down.svg';
 
 export const SemesterContainer = styled.div`
   position: relative;
-  width: 218px;
-  height: 53px; 
+  width: 160px;
+  height: 40px; 
   margin: 16px 0 16px 16px;
   border: solid 1px ${style.greyBackgroundColor};
   border-radius: 4px;
@@ -16,11 +16,12 @@ export const SemesterSelector = styled.select`
   position: absolute;
   width:100%;
   height:100%;
-  padding : 0 20px;
+  padding : 0 12px;
   border: none;
+  background: transparent;
   color: ${style.mainFontColor};
   font-family: ${style.defaultFontFamily};
-  font-size: 18px;
+  font-size: 14px;
   font-weight : 500;  
   outline: none;
   appearance: none;
@@ -30,8 +31,8 @@ export const SelectOption = styled.option``;
 
 export const SemesterDownArrowSVG = styled(DownArrowSVG)`
   position: absolute;
-  top: 16.5px;
-  right: 16px;
-  width: 20px;
-  height: 20px;
+  top: 12px;
+  right: 10px;
+  width: 16px;
+  height: 16px;
 `;

@@ -4,16 +4,16 @@ export const StarsContainer = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  width: 400px;
-  height: 60px;
+  width: 200px;
+  height: 40px;
   margin: auto;
-  padding-bottom: 16px;  
-
+  margin-top : 19px;
+  margin-bottom: 15.5px;
 `;
 
 export const StarsBox = styled.div`
   position: absolute; 
-  width: 300px;
-  height: 60px;
+  width: 200px;
+  height: 40px;
   cursor: pointer;
 `;

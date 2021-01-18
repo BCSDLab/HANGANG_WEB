@@ -7,9 +7,11 @@ import CommentBox from './TotalReviewComment.style';
 import { StarsContainer, StarsBox } from './TotalReviewStars.style';
 import Star from './Star/Star';
 import BaseStar from './BaseStar/BaseStar';
-import LectureReviewCommentPlaceholder from '../../../style/style';
+import {
+  ReviewTitleCautionContainer, CautionContainer, CautionComment, CautionLectureSVG,
+} from './TotalReviewCaution.style';
 
-const HALFSTARWIDTH = 30;
+const HALFSTARWIDTH = 20;
 
 export type TotalRefType = {
   starReview : number;
@@ -37,7 +39,17 @@ const TotalReview = forwardRef<TotalRefType>((_props, ref) => {
 
   return (
     <>
-      <ReviewTitle title="총평" metadata={!commentReview ? '아직 작성이 완료되지 않았습니다.' : null} />
+      <ReviewTitleCautionContainer>
+        <ReviewTitle title="총평" />
+        {!commentReview
+          ? (
+            <CautionContainer>
+              <CautionLectureSVG />
+              <CautionComment>아직 작성이 완료되지 않았습니다.</CautionComment>
+            </CautionContainer>
+          )
+          : null}
+      </ReviewTitleCautionContainer>
       <StarsContainer className="container">
         <BaseStar />
         <StarsBox onClick={starClick}>
@@ -49,7 +61,6 @@ const TotalReview = forwardRef<TotalRefType>((_props, ref) => {
         ref={commentRef}
         rows={5}
         cols={33}
-        placeholder={LectureReviewCommentPlaceholder}
         onChange={onChangeCommentHandler}
       />
       <Submit isComplete={!!commentReview} />

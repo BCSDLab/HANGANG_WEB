@@ -17,7 +17,8 @@ const TestDifficulty = forwardRef<TestDifficultyRefType>(
   (_props, ref) => {
     const [selectedReview, setSelectedReview] = useState(1);
 
-    const select = (selectedId : number) => {
+    const select = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const selectedId = +e.target.value;
       if (selectedId === selectedReview) return;
       setSelectedReview(selectedId);
     };

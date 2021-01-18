@@ -1,3 +1,1 @@
-import LectureReview from '@views/LectureReview/LectureReview';
-
-export default LectureReview;
+export { default } from '@views/LectureReview/LectureReview';

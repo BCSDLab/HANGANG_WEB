@@ -8,20 +8,20 @@ type StylePropType = {
 
 export const ReviewLabel = styled.label<StylePropType>`
   display:inline-block;
-  width: ${({ largeWidth }) => (largeWidth ? '30%' : '104px')};
-  height: 45px;
-  margin-right: 16px;
-  margin-bottom: 16px;
+  width: ${({ largeWidth }) => (largeWidth ? '30%' : '64px')};
+  height: 32px;
+  margin-right: 8px;
+  margin-bottom: 8px;
   border-radius: 25px;
   border: none;
   background-color: ${({ selected }) => (selected ? style.mainColor : style.greyBackgroundColor)};
   color: ${({ selected }) => (selected ? style.whiteColor : style.mainFontColor)};
-  font-size: 18px;
+  font-size: 14px;
   font-family: ${style.defaultFontFamily};
   outline: none;
   cursor: pointer;
   text-align: center;
-  line-height: 45px;
+  line-height: 32px;
 `;
 
 export const ReviewInput = styled.input`
