@@ -52,7 +52,7 @@ export const LectureType = styled.div`
   display: inline-block;
   
   ${mobileQuery} {
-    font: normal 12px ${defaultFontFamily};
+    font: normal 12px/27px ${defaultFontFamily};
     color: ${mainColor};
   }
 `;

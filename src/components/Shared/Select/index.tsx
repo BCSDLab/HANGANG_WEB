@@ -10,12 +10,12 @@ const ContainerStyle = {
 };
 
 interface IOptionContainer {
-  fill: boolean;
+  isFilled: boolean;
 }
 
 const OptionContainer = styled.select<IOptionContainer>`
   height: 100%;
-  ${(props) => (props.fill ? css`
+  ${(props) => (props.isFilled ? css`
     flex: 1 1 auto;
     width: 100%;
   ` : null)};
@@ -45,28 +45,29 @@ const SelectorIconContainer = styled.span.attrs({
 type Size = 'sm' | 'md' | 'lg';
 type InputVariant = 'default' | 'borderless' | 'outlined';
 interface ISelectContainer {
-  fill: boolean;
+  isFilled: boolean;
   size: Size;
   variant: InputVariant;
 }
 
 const SelectContainer = styled.div<ISelectContainer>`
-  display: inline-block;
+  display: flex;
+  align-items: center;
   position: relative;
   height: ${(props) => ContainerStyle[props.size]}px;
   cursor: pointer;
 
 
-  ${(props) => (props.fill ? css`
+  ${(props) => (props.isFilled ? css`
     flex: 1 1 auto;
     width: 100%;
   ` : null)};
   ${OptionContainer} {
     padding-right: ${(props) => ContainerStyle[props.size] / 2}px;
     font-size: ${(props) => ContainerStyle[props.size] / 2}px;
+    line-height: ${(props) => ContainerStyle[props.size]}px;
   }
   ${SelectorIconContainer} {
-    top: ${(props) => ContainerStyle[props.size] / 4}px;
     width: ${(props) => ContainerStyle[props.size] / 2}px;
     height: ${(props) => ContainerStyle[props.size] / 2}px;
   }
@@ -116,8 +117,8 @@ const Select: React.ForwardRefRenderFunction<HTMLSelectElement, IProps> = ({
   options,
   onChange,
 }, ref) => (
-  <SelectContainer fill={fill} size={size} variant={variant}>
-    <OptionContainer value={value} onChange={onChange} ref={ref} fill={fill}>
+  <SelectContainer isFilled={fill} size={size} variant={variant}>
+    <OptionContainer value={value} onChange={onChange} ref={ref} isFilled={fill}>
       {options ? options.map(renderOption) : null}
     </OptionContainer>
     <SelectorIconContainer>
