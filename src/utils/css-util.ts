@@ -20,3 +20,5 @@ export const blackColor100 = '#FAFAFA';
 export const whiteColor = '#FFFFFF';
 
 export const orangeColor = '#FFAB2E';
+
+export const disabledBackgroundColor = '#bddcff';
