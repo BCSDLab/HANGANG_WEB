@@ -22,6 +22,7 @@ export const DetailInfoFirstRow = styled.div`
   align-items: end;
   
   ${mobileQuery} {
+    margin-bottom: 8px;
   }
 `;
 
@@ -173,8 +174,8 @@ export const EvaluationDesc = styled.span`
 
   ${mobileQuery} {
     display: inline-block;
-    width: 70px;
-    margin: 0 15px 0 0;
+    width: 75px;
+    margin: 0 10px 0 0;
     color: ${greyFontColor};
   }
 `;
