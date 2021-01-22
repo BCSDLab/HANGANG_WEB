@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {
-  mobileQuery, greyBackgroundColor, defaultFontFamily, mainColor, greyFontColor
+  mobileQuery, greyBackgroundColor, defaultFontFamily, mainColor, greyFontColor,
 } from '@utils/css-util';
 
 import HomeSVG from '@assets/svg/home.svg';
@@ -9,8 +9,9 @@ import DocumentTextSVG from '@assets/svg/document-text.svg';
 import TemplateSVG from '@assets/svg/template.svg';
 import UserSVG from '@assets/svg/user.svg';
 
-// 해당페이지면 hight line visibility : visible
-// svg, description color : mainColor
+type StylePropType = {
+  isnow : string;
+}
 
 export const NavContainer = styled.nav`
   ${mobileQuery}{
@@ -20,7 +21,7 @@ export const NavContainer = styled.nav`
     padding-bottom: 16px;
     border-top: solid 1px ${greyBackgroundColor};
   }
-`
+`;
 
 export const NavOption = styled.button`
   ${mobileQuery}{
@@ -35,72 +36,71 @@ export const NavOption = styled.button`
   }
 `;
 
-export const HighlightLine = styled.div`
+export const HighlightLine = styled.div<StylePropType>`
   ${mobileQuery}{
-    visibility: hidden;
-    /* 요부분은 페이지에따라서 다르게 */
     position: absolute;
     top : 0px;
     width: 72px;
     height: 2px;
     background-color: ${mainColor};
+    visibility: ${({ isnow }) => (isnow === 'true' ? 'visible' : 'hidden')};
   }
 `;
 
-export const HomeIcon = styled(HomeSVG)`
+export const HomeIcon = styled(HomeSVG)<StylePropType>`
   > path {
-    stroke: ${greyFontColor};
+    stroke: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
   }
   ${mobileQuery}{
     width: 24px;
     height: 24px;
   }
-`
+`;
 
-export const ClipBoardCheckIcon = styled(ClipBoardCheckSVG)`
+export const ClipBoardCheckIcon = styled(ClipBoardCheckSVG)<StylePropType>`
   > path {
-    stroke: ${greyFontColor};
+    stroke: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
   }
   ${mobileQuery}{
     width: 24px;
     height: 24px;
   }
-`
+`;
 
-export const DocumentTextIcon = styled(DocumentTextSVG)`
+export const DocumentTextIcon = styled(DocumentTextSVG)<StylePropType>`
   > path {
-    stroke: ${greyFontColor};
+    stroke: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
   }
   ${mobileQuery}{
     width: 24px;
     height: 24px;
   }
-`
+`;
 
-export const TemplateIcon = styled(TemplateSVG)`
+export const TemplateIcon = styled(TemplateSVG)<StylePropType>`
   > path {
-    stroke: ${greyFontColor};
+    stroke: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
   }
   ${mobileQuery}{
     width: 24px;
     height: 24px;
   }
-`
+`;
 
-export const UserIcon = styled(UserSVG)`
+export const UserIcon = styled(UserSVG)<StylePropType>`
   > path {
-    stroke: ${greyFontColor};
+    stroke: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
   }
   ${mobileQuery}{
     width: 24px;
     height: 24px;
   }
-`
+`;
 
-export const Description = styled.span`
+export const Description = styled.span<StylePropType>`
   ${mobileQuery}{
     margin-top: 0.6px;
-    color: ${greyFontColor};
+    color: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
     font: normal 11px ${defaultFontFamily};
   }
-`
+`;

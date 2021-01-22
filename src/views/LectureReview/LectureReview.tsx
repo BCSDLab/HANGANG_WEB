@@ -7,7 +7,6 @@ import GradeRatio, { GradeRatioRefType } from '@components/LectureReview/GradeRa
 import HashTag, { HashTagRefType } from '@components/LectureReview/HashTag/HashTag';
 import TestDifficulty, { TestDifficultyRefType } from '@components/LectureReview/TestDifficulty/TestDifficulty';
 import TotalReview, { TotalRefType } from '@components/LectureReview/TotalReview/TotalReview';
-import BottomNav from '@components/Shared/BottomNav';
 
 const LectureReview : React.FC = () => {
   const semesterRef = useRef<SemesterRefType>(null);
@@ -36,17 +35,16 @@ const LectureReview : React.FC = () => {
 
   return (
     <>
-    <form onSubmit={submit}>
-      <Semester ref={semesterRef} />
-      <CheckFrequency ref={checkFrequencyRef} />
-      <AssignmentInfo ref={assignmentInfoRef} />
-      <AssignmentAmount ref={assignmentAmountRef} />
-      <TestDifficulty ref={testDifficultyRef} />
-      <GradeRatio ref={gradeRatioRef} />
-      <HashTag ref={hashTagRef} />
-      <TotalReview ref={totalRef} />
-    </form>
-    <BottomNav />
+      <form onSubmit={submit}>
+        <Semester ref={semesterRef} />
+        <CheckFrequency ref={checkFrequencyRef} />
+        <AssignmentInfo ref={assignmentInfoRef} />
+        <AssignmentAmount ref={assignmentAmountRef} />
+        <TestDifficulty ref={testDifficultyRef} />
+        <GradeRatio ref={gradeRatioRef} />
+        <HashTag ref={hashTagRef} />
+        <TotalReview ref={totalRef} />
+      </form>
     </>
   );
 };
