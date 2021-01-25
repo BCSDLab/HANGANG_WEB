@@ -9,6 +9,8 @@ const options = [
   { id: 4, title: '시간표', path: '/timetables' },
   { id: 5, title: '마이페이지', path: '/mypage' },
 ];
+// bottom nav이 존재하는 경우는 흔치 않기때문에
+// path를 통해서 자신의 path에오면 highlight되도록함
 // 마이페이지 url은 정해져있지않아 임의로 지정했습니다.
 
 const BottomNav : React.FC = () => (

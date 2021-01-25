@@ -13,7 +13,6 @@ import {
 
 type PropType = {
   path : string;
-  children : React.ReactNode;
 }
 
 const EachOption : React.FC<PropType> = ({ path, children }) => {
