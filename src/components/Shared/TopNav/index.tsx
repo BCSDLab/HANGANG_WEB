@@ -1,17 +1,42 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import {
-  TopNavContainer, BackButton, LeftIcon, TopNavTitle, SubOptionButton,
+  TopNavContainer,
+  BackButton,
+  LeftIcon,
+  TopNavTitle,
+  SubOptionPosition,
+  ProgressOuterBar,
+  ProgressBar,
 } from './TopNav.style';
 
-const TopNav: React.FC = ({ children }) => (
-  <TopNavContainer>
-    <BackButton>
-      <LeftIcon />
-    </BackButton>
-    <TopNavTitle>{children}</TopNavTitle>
-    {children === '스크랩' && <SubOptionButton>편집</SubOptionButton>}
-    {children === '강의평' && <SubOptionButton>작성</SubOptionButton>}
-  </TopNavContainer>
-);
+type PropType = {
+  title : string;
+  Metadata ?: JSX.Element;
+  progress ?: number;
+}
+
+const TopNav: React.FC<PropType> = ({ title, Metadata, progress }) => {
+  const router = useRouter();
+
+  const goBack = () => {
+    router.back();
+  };
+
+  return (
+    <TopNavContainer>
+      <BackButton onClick={goBack}>
+        <LeftIcon />
+      </BackButton>
+      <TopNavTitle>{title}</TopNavTitle>
+      <SubOptionPosition>
+        {Metadata}
+      </SubOptionPosition>
+      <ProgressOuterBar>
+        <ProgressBar progress={progress || 0} />
+      </ProgressOuterBar>
+    </TopNavContainer>
+  );
+};
 
 export default TopNav;

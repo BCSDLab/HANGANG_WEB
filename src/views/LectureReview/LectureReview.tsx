@@ -50,18 +50,16 @@ const LectureReview: React.FC = () => {
   };
 
   return (
-    <>
-      <form onSubmit={submit}>
-        <Semester ref={semesterRef} />
-        <CheckFrequency ref={checkFrequencyRef} />
-        <AssignmentInfo ref={assignmentInfoRef} />
-        <AssignmentAmount ref={assignmentAmountRef} />
-        <TestDifficulty ref={testDifficultyRef} />
-        <GradeRatio ref={gradeRatioRef} />
-        <HashTag ref={hashTagRef} />
-        <TotalReview ref={totalRef} />
-      </form>
-    </>
+    <form onSubmit={submit}>
+      <Semester ref={semesterRef} />
+      <CheckFrequency ref={checkFrequencyRef} />
+      <AssignmentInfo ref={assignmentInfoRef} />
+      <AssignmentAmount ref={assignmentAmountRef} />
+      <TestDifficulty ref={testDifficultyRef} />
+      <GradeRatio ref={gradeRatioRef} />
+      <HashTag ref={hashTagRef} />
+      <TotalReview ref={totalRef} />
+    </form>
   );
 };
 

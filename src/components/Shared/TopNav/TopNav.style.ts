@@ -1,51 +1,82 @@
 import styled from 'styled-components';
 import LeftSVG from '@assets/svg/chevron-left.svg';
 import {
-  mobileQuery, defaultFontFamily, greyBackgroundColor, mainFontColor,
+  mobileQuery,
+  defaultFontFamily,
+  greyBackgroundColor,
+  mainFontColor,
+  whiteColor,
+  mainColor,
 } from '@utils/css-util';
 
 export const TopNavContainer = styled.div`
-  ${mobileQuery}{
-    position: relative;
-    height: 95px;
-    border-bottom: 1px solid ${greyBackgroundColor};
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: ${whiteColor};
+  ${mobileQuery} {
+    height: 72px;
     text-align: center;
   }
 `;
 export const BackButton = styled.button`
-  ${mobileQuery}{
+  cursor: pointer;
+  ${mobileQuery} {
     position: absolute;
-    top : 56px;
+    top: 33px;
     left: 8px;
     padding: 0;
     border: none;
     background-color: transparent;
   }
-  cursor: pointer;
 `;
 export const LeftIcon = styled(LeftSVG)`
-  ${mobileQuery}{
+  ${mobileQuery} {
     width: 24px;
     height: 24px;
   }
 `;
 export const TopNavTitle = styled.span`
-  ${mobileQuery}{
+  ${mobileQuery} {
     position: relative;
-    top : 56px;
-    color : ${mainFontColor};
+    top: 33px;
+    color: ${mainFontColor};
     font: 500 16px/24px ${defaultFontFamily};
   }
 `;
+
 export const SubOptionButton = styled.button`
-  ${mobileQuery}{
-    position: absolute;
-    top: 58px;
-    right: 16px;
+  cursor: pointer;
+  ${mobileQuery} {
     padding: 0;
     border: none;
     background-color: transparent;
-    color : ${mainFontColor};
+    color: ${mainFontColor};
   }
-  cursor: pointer;
+`;
+
+export const SubOptionPosition = styled.div`
+  ${mobileQuery} {
+    position: absolute;
+    top: 35px;
+    right: 16px;
+  }
+`;
+
+export const ProgressOuterBar = styled.div`
+  position: absolute;
+  bottom: 0;
+  width : 100%;
+  height: 1px;
+  background-color: ${greyBackgroundColor};
+`;
+
+type ProgressPropsType = {
+  progress : number;
+}
+
+export const ProgressBar = styled.div<ProgressPropsType>`
+  width: ${({ progress }) => progress}%;
+  height: 100%;
+  background-color: ${mainColor};
 `;

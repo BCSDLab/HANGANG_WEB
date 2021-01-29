@@ -2,9 +2,7 @@ import React from 'react';
 
 const DefaultLayout: React.FC = ({ children }) => (
   <>
-    <main>
-      {children}
-    </main>
+    {children}
   </>
 );
 

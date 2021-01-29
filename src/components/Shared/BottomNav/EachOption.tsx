@@ -1,45 +1,27 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import {
-  NavOption,
-  HighlightLine,
-  HomeIcon,
-  ClipBoardCheckIcon,
-  DocumentTextIcon,
-  TemplateIcon,
-  UserIcon,
-  Description,
+  NavOption, HighlightLine, Description, Icon,
 } from './BottomNav.style';
 
 type PropType = {
-  path : string;
-}
+  title: string;
+  path: string;
+  svg: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+};
 
-const EachOption : React.FC<PropType> = ({ path, children }) => {
+const EachOption: React.FC<PropType> = ({ title, path, svg }) => {
   const router = useRouter();
-  const onIsNow = () => (path === router.pathname).toString();
 
-  const Icon = () => {
-    switch (children) {
-      case '홈':
-        return <HomeIcon isnow={onIsNow()} />;
-      case '강의평':
-        return <ClipBoardCheckIcon isnow={onIsNow()} />;
-      case '강의자료':
-        return <DocumentTextIcon isnow={onIsNow()} />;
-      case '시간표':
-        return <TemplateIcon isnow={onIsNow()} />;
-      case '마이페이지':
-        return <UserIcon isnow={onIsNow()} />;
-      default:
-        throw new Error('적절치 못한 제목입니다.');
-    }
+  const goUrl = () => {
+    router.push(path);
   };
+
   return (
-    <NavOption>
-      <HighlightLine isnow={onIsNow()} />
-      {Icon()}
-      <Description isnow={onIsNow()}>{children}</Description>
+    <NavOption onClick={goUrl}>
+      <HighlightLine selected={path === router.pathname} />
+      <Icon as={svg} selected={path === router.pathname} />
+      <Description selected={path === router.pathname}>{title}</Description>
     </NavOption>
   );
 };

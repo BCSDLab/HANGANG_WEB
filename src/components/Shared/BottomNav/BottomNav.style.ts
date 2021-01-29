@@ -1,23 +1,17 @@
 import styled from 'styled-components';
 import {
-  mobileQuery, greyBackgroundColor, defaultFontFamily, mainColor, greyFontColor,
+  mobileQuery, greyBackgroundColor, defaultFontFamily, mainColor, greyFontColor, whiteColor,
 } from '@utils/css-util';
 
-import HomeSVG from '@assets/svg/home.svg';
-import ClipBoardCheckSVG from '@assets/svg/clipboard-check.svg';
-import DocumentTextSVG from '@assets/svg/document-text.svg';
-import TemplateSVG from '@assets/svg/template.svg';
-import UserSVG from '@assets/svg/user.svg';
-
-type StylePropType = {
-  isnow : string;
-}
-
 export const NavContainer = styled.nav`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: ${whiteColor};
+  z-index: 3;
   ${mobileQuery}{
     display: flex;
     justify-content: space-around;
-    position: relative;
     padding-bottom: 16px;
     border-top: solid 1px ${greyBackgroundColor};
   }
@@ -36,71 +30,44 @@ export const NavOption = styled.button`
   }
 `;
 
-export const HighlightLine = styled.div<StylePropType>`
+type HighLightPropType = {
+  selected : boolean;
+}
+
+export const HighlightLine = styled.div<HighLightPropType>`
   ${mobileQuery}{
     position: absolute;
     top : 0px;
     width: 72px;
     height: 2px;
     background-color: ${mainColor};
-    visibility: ${({ isnow }) => (isnow === 'true' ? 'visible' : 'hidden')};
+    visibility: ${({ selected }) => (selected ? 'visible' : 'hidden')};
   }
 `;
 
-export const HomeIcon = styled(HomeSVG)<StylePropType>`
+type IconPropType = {
+  selected : boolean;
+}
+
+export const Icon = styled.svg<IconPropType>`
   > path {
-    stroke: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
+    stroke: ${(props) => (props.selected ? mainColor : greyFontColor)};
   }
   ${mobileQuery}{
     width: 24px;
     height: 24px;
   }
+
 `;
 
-export const ClipBoardCheckIcon = styled(ClipBoardCheckSVG)<StylePropType>`
-  > path {
-    stroke: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
-  }
-  ${mobileQuery}{
-    width: 24px;
-    height: 24px;
-  }
-`;
+type DescriptionPropType = {
+  selected : boolean;
+}
 
-export const DocumentTextIcon = styled(DocumentTextSVG)<StylePropType>`
-  > path {
-    stroke: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
-  }
+export const Description = styled.span<DescriptionPropType>`
   ${mobileQuery}{
-    width: 24px;
-    height: 24px;
-  }
-`;
-
-export const TemplateIcon = styled(TemplateSVG)<StylePropType>`
-  > path {
-    stroke: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
-  }
-  ${mobileQuery}{
-    width: 24px;
-    height: 24px;
-  }
-`;
-
-export const UserIcon = styled(UserSVG)<StylePropType>`
-  > path {
-    stroke: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
-  }
-  ${mobileQuery}{
-    width: 24px;
-    height: 24px;
-  }
-`;
-
-export const Description = styled.span<StylePropType>`
-  ${mobileQuery}{
-    margin-top: 0.6px;
-    color: ${({ isnow }) => (isnow === 'true' ? mainColor : greyFontColor)};
+    margin-top: 1px;
+    color: ${({ selected }) => (selected ? mainColor : greyFontColor)};
     font: normal 11px ${defaultFontFamily};
   }
 `;
