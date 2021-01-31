@@ -9,11 +9,12 @@ import {
   mainColor,
 } from '@utils/css-util';
 
-export const TopNavContainer = styled.div`
+export const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
   background-color: ${whiteColor};
+  z-index: 3;
   ${mobileQuery} {
     height: 72px;
     text-align: center;
@@ -36,7 +37,7 @@ export const LeftIcon = styled(LeftSVG)`
     height: 24px;
   }
 `;
-export const TopNavTitle = styled.span`
+export const HeaderTitle = styled.span`
   ${mobileQuery} {
     position: relative;
     top: 33px;

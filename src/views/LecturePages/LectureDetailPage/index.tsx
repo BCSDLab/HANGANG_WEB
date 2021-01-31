@@ -6,11 +6,6 @@ import LinkWithImageSwiper, { ISwiperItem } from '@components/LecturePages/Lectu
 import LectureCommentList from '@components/LecturePages/LectureDetailPage/LectureCommentList';
 import TimetableInfoSection from '@components/LecturePages/LectureDetailPage/TimetableInfoSection';
 import RateBarChart from '@components/LecturePages/LectureDetailPage/RateBarChart';
-import Bottom from '@components/Shared/BottomNav';
-import Top from '@components/Shared/TopNav';
-
-// 예시
-import { SubOptionButton } from '@components/Shared/TopNav/TopNav.style';
 import * as S from './LectureDetailPage.style';
 
 interface IProps {
@@ -124,19 +119,6 @@ const LectureDetailPage: NextPage<IProps> = ({
       <LinkWithImageSwiper itemsData={material} noItemText="등록된 강의자료가 없습니다." />
     </S.MaterialListContainer>
     <LectureCommentList />
-    <Bottom />
-    <Top
-      title="로그인"
-      Metadata={(
-        <SubOptionButton onClick={() => {
-          // do something
-        }}
-        >
-          작성
-        </SubOptionButton>
-    )}
-      progress={75}
-    />
   </DefaultLayout>
 );
 

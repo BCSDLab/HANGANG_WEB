@@ -30,11 +30,11 @@ export const NavOption = styled.button`
   }
 `;
 
-type HighLightPropType = {
+type SelectedPropType = {
   selected : boolean;
 }
 
-export const HighlightLine = styled.div<HighLightPropType>`
+export const HighlightLine = styled.div<SelectedPropType>`
   ${mobileQuery}{
     position: absolute;
     top : 0px;
@@ -45,11 +45,7 @@ export const HighlightLine = styled.div<HighLightPropType>`
   }
 `;
 
-type IconPropType = {
-  selected : boolean;
-}
-
-export const Icon = styled.svg<IconPropType>`
+export const Icon = styled.svg<SelectedPropType>`
   > path {
     stroke: ${(props) => (props.selected ? mainColor : greyFontColor)};
   }
@@ -60,11 +56,7 @@ export const Icon = styled.svg<IconPropType>`
 
 `;
 
-type DescriptionPropType = {
-  selected : boolean;
-}
-
-export const Description = styled.span<DescriptionPropType>`
+export const Description = styled.span<SelectedPropType>`
   ${mobileQuery}{
     margin-top: 1px;
     color: ${({ selected }) => (selected ? mainColor : greyFontColor)};

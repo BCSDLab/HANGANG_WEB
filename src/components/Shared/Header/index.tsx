@@ -1,22 +1,22 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import {
-  TopNavContainer,
+  HeaderContainer,
   BackButton,
   LeftIcon,
-  TopNavTitle,
+  HeaderTitle,
   SubOptionPosition,
   ProgressOuterBar,
   ProgressBar,
-} from './TopNav.style';
+} from './Header.style';
 
 type PropType = {
   title : string;
-  Metadata ?: JSX.Element;
+  subButton ?: React.ReactNode;
   progress ?: number;
 }
 
-const TopNav: React.FC<PropType> = ({ title, Metadata, progress }) => {
+const Header: React.FC<PropType> = ({ title, subButton, progress }) => {
   const router = useRouter();
 
   const goBack = () => {
@@ -24,19 +24,19 @@ const TopNav: React.FC<PropType> = ({ title, Metadata, progress }) => {
   };
 
   return (
-    <TopNavContainer>
+    <HeaderContainer>
       <BackButton onClick={goBack}>
         <LeftIcon />
       </BackButton>
-      <TopNavTitle>{title}</TopNavTitle>
+      <HeaderTitle>{title}</HeaderTitle>
       <SubOptionPosition>
-        {Metadata}
+        {subButton}
       </SubOptionPosition>
       <ProgressOuterBar>
         <ProgressBar progress={progress || 0} />
       </ProgressOuterBar>
-    </TopNavContainer>
+    </HeaderContainer>
   );
 };
 
-export default TopNav;
+export default Header;
