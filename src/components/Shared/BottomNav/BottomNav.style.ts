@@ -17,7 +17,35 @@ export const NavContainer = styled.nav`
   }
 `;
 
-export const NavOption = styled.button`
+export const HighlightLine = styled.div`
+  ${mobileQuery}{
+    position: absolute;
+    top : 0;
+    width: 72px;
+    height: 2px;
+    background-color: ${mainColor};
+  }
+`;
+
+export const Icon = styled.svg`
+  ${mobileQuery}{
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const Description = styled.span`
+  ${mobileQuery}{
+    margin-top: 1px;
+    font: normal 11px ${defaultFontFamily};
+  }
+`;
+
+type SelectedPropType = {
+  selected : boolean;
+}
+
+export const NavOption = styled.button<SelectedPropType>`
   ${mobileQuery}{
     display: flex;
     flex-direction: column;
@@ -27,39 +55,16 @@ export const NavOption = styled.button`
     padding: 0;
     border: none;
     background-color: transparent;
-  }
-`;
-
-type SelectedPropType = {
-  selected : boolean;
-}
-
-export const HighlightLine = styled.div<SelectedPropType>`
-  ${mobileQuery}{
-    position: absolute;
-    top : 0px;
-    width: 72px;
-    height: 2px;
-    background-color: ${mainColor};
-    visibility: ${({ selected }) => (selected ? 'visible' : 'hidden')};
-  }
-`;
-
-export const Icon = styled.svg<SelectedPropType>`
-  > path {
-    stroke: ${(props) => (props.selected ? mainColor : greyFontColor)};
-  }
-  ${mobileQuery}{
-    width: 24px;
-    height: 24px;
-  }
-
-`;
-
-export const Description = styled.span<SelectedPropType>`
-  ${mobileQuery}{
-    margin-top: 1px;
-    color: ${({ selected }) => (selected ? mainColor : greyFontColor)};
-    font: normal 11px ${defaultFontFamily};
+    ${HighlightLine}{
+      display: ${(props) => (!props.selected && 'none')}; 
+    }
+    ${Icon}{
+      > path {
+        stroke: ${(props) => (props.selected ? mainColor : greyFontColor)};
+      }
+    }
+    ${Description}{
+      color: ${(props) => (props.selected ? mainColor : greyFontColor)};
+    }
   }
 `;

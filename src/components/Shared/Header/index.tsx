@@ -12,6 +12,7 @@ import {
 
 type PropType = {
   title : string;
+  // subButton(컴포넌트)은 Header 랜더링할 페이지에서 관리
   subButton ?: React.ReactNode;
   progress ?: number;
 }

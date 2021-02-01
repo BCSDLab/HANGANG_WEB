@@ -23,9 +23,7 @@ import TestDifficulty, {
 import TotalReview, {
   TotalRefType,
 } from '@components/LectureReview/TotalReview/TotalReview';
-import Header from '@components/Shared/Header';
-import HeaderButton from '@components/Shared/Header/HeaderButton';
-import BottomNav from '@components/Shared/BottomNav';
+import ReviewForm from './LectureReview.style';
 
 const LectureReview: React.FC = () => {
   const semesterRef = useRef<SemesterRefType>(null);
@@ -53,28 +51,18 @@ const LectureReview: React.FC = () => {
   };
 
   return (
-    <form onSubmit={submit}>
-      <Header
-        title="내 스크랩"
-        subButton={(
-          <HeaderButton subOptionClick={() => {
-            // console.log('clicked'); //doing something
-          }}
-          >
-            수정
-          </HeaderButton>
-      )}
-      />
-      <BottomNav />
-      <Semester ref={semesterRef} />
-      <CheckFrequency ref={checkFrequencyRef} />
-      <AssignmentInfo ref={assignmentInfoRef} />
-      <AssignmentAmount ref={assignmentAmountRef} />
-      <TestDifficulty ref={testDifficultyRef} />
-      <GradeRatio ref={gradeRatioRef} />
-      <HashTag ref={hashTagRef} />
-      <TotalReview ref={totalRef} />
-    </form>
+    <>
+      <ReviewForm onSubmit={submit}>
+        <Semester ref={semesterRef} />
+        <CheckFrequency ref={checkFrequencyRef} />
+        <AssignmentInfo ref={assignmentInfoRef} />
+        <AssignmentAmount ref={assignmentAmountRef} />
+        <TestDifficulty ref={testDifficultyRef} />
+        <GradeRatio ref={gradeRatioRef} />
+        <HashTag ref={hashTagRef} />
+        <TotalReview ref={totalRef} />
+      </ReviewForm>
+    </>
   );
 };
 
