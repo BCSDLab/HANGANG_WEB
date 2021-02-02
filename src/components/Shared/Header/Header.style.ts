@@ -10,23 +10,24 @@ import {
 } from '@utils/css-util';
 
 export const HeaderContainer = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   width: 100%;
   background-color: ${whiteColor};
   z-index: 3;
   ${mobileQuery} {
-    height: 72px;
-    text-align: center;
+    height: 56px;
   }
 `;
 export const BackButton = styled.button`
   cursor: pointer;
   ${mobileQuery} {
-    position: absolute;
-    top: 33px;
-    left: 8px;
-    padding: 0;
+    height: 24px;
+    padding:0;
+    margin: 0 0 0 8px;
     border: none;
     background-color: transparent;
   }
@@ -39,28 +40,15 @@ export const LeftIcon = styled(LeftSVG)`
 `;
 export const HeaderTitle = styled.span`
   ${mobileQuery} {
-    position: relative;
-    top: 33px;
+    padding-left: 8px;
     color: ${mainFontColor};
     font: 500 16px/24px ${defaultFontFamily};
   }
 `;
 
-export const SubOptionButton = styled.button`
-  cursor: pointer;
-  ${mobileQuery} {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    color: ${mainFontColor};
-  }
-`;
-
 export const SubOptionPosition = styled.div`
   ${mobileQuery} {
-    position: absolute;
-    top: 35px;
-    right: 16px;
+    margin: 0 16px 0 0;
   }
 `;
 

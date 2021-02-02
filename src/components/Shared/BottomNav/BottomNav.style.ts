@@ -12,18 +12,7 @@ export const NavContainer = styled.nav`
   ${mobileQuery}{
     display: flex;
     justify-content: space-around;
-    padding-bottom: 16px;
-    border-top: solid 1px ${greyBackgroundColor};
-  }
-`;
-
-export const HighlightLine = styled.div`
-  ${mobileQuery}{
-    position: absolute;
-    top : 0;
-    width: 72px;
-    height: 2px;
-    background-color: ${mainColor};
+    border-top: 1px solid ${greyBackgroundColor};
   }
 `;
 
@@ -42,29 +31,26 @@ export const Description = styled.span`
 `;
 
 type SelectedPropType = {
-  selected : boolean;
+  $selected : boolean;
 }
 
 export const NavOption = styled.button<SelectedPropType>`
   ${mobileQuery}{
+    flex:1 1 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 55px;
-    margin-top: 16px;
-    padding: 0;
+    padding: 16px 0 16px 0;
     border: none;
+    border-top: ${(props) => props.$selected && `2px solid ${mainColor}`};
     background-color: transparent;
-    ${HighlightLine}{
-      display: ${(props) => (!props.selected && 'none')}; 
-    }
     ${Icon}{
       > path {
-        stroke: ${(props) => (props.selected ? mainColor : greyFontColor)};
+        stroke: ${(props) => (props.$selected ? mainColor : greyFontColor)};
       }
     }
     ${Description}{
-      color: ${(props) => (props.selected ? mainColor : greyFontColor)};
+      color: ${(props) => (props.$selected ? mainColor : greyFontColor)};
     }
   }
 `;

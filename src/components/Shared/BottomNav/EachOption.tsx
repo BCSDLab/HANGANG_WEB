@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  NavOption, HighlightLine, Description, Icon,
+  NavOption, Description, Icon,
 } from './BottomNav.style';
 
 type PropType = {
@@ -13,8 +13,8 @@ type PropType = {
 const EachOption: React.FC<PropType> = ({
   title, svg, selected, goUrl,
 }) => (
-  <NavOption onClick={goUrl} selected={selected}>
-    <HighlightLine />
+  <NavOption onClick={goUrl} $selected={selected}>
+    {/* <HighlightLine /> */}
     <Icon as={svg} />
     <Description>{title}</Description>
   </NavOption>
