@@ -1,11 +1,9 @@
 import React from 'react';
 
 const DefaultLayout: React.FC = ({ children }) => (
-  <>
-    <main>
-      {children}
-    </main>
-  </>
+  <main>
+    {children}
+  </main>
 );
 
 export default DefaultLayout;
