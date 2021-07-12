@@ -1,7 +1,8 @@
 // mobile media query utils
-import { css } from 'styled-components';
 
 export const mobileQuery = '@media only screen and (max-width: 576px)';
+
+export const mobileMaxHeight = '500px';
 
 // font-family utils
 export const defaultFontFamily = '"NotoSansCJKKR", -apple-system, -moz-fixed, sans-serif';
@@ -25,12 +26,47 @@ export const orangeColor = '#FFAB2E';
 
 export const disabledBackgroundColor = '#bddcff';
 
-// Bottom Navigation 있으면
-export const BottomPadding = css`
-  padding-bottom: 72px;
-`;
+// color name (for export BCSD_WEB_LIBRARY)
 
-// Top Navigation 있으면
-export const TopPadding = css`
-  padding-top: 72px;
-`;
+interface IColorName {
+  [key: string]: {
+    backgroundColor: string;
+    disabledColor: string;
+  }
+}
+
+export const ColorName: IColorName = {
+  primary: {
+    backgroundColor: mainColor,
+    disabledColor: disabledBackgroundColor,
+  },
+  secondary: {
+    backgroundColor: yellowColor,
+    disabledColor: '',
+  },
+};
+
+export const isColorName = (str: string) => str === 'primary' || str === 'secondary';
+
+interface IFormInputSize {
+  sm: {
+    [key: string]: string;
+  };
+  md: {
+    [key: string]: string;
+  };
+  lg: {
+    [key: string]: string;
+  };
+}
+
+export const FormInputSize: IFormInputSize = {
+  sm: {
+    button: '28px',
+  },
+  md: {
+    button: '40px',
+  },
+  lg: {
+  },
+};

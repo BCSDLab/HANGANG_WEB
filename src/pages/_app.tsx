@@ -1,7 +1,11 @@
-import { Provider } from 'react-redux';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
 import { AppProps } from 'next/app';
+import { Hydrate } from 'react-query/hydration';
+import { Provider } from 'react-redux';
 import { createGlobalStyle } from 'styled-components';
 import { useRedux } from '@utils/hooks/useRedux';
+import { useState } from 'react';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -26,11 +30,17 @@ const GlobalStyle = createGlobalStyle`
 
 const App = ({ Component: AppComponent, pageProps }: AppProps): JSX.Element => {
   const store = useRedux(pageProps.initialState);
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
-    <Provider store={store}>
-      <GlobalStyle />
-      <AppComponent {...pageProps} />
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Provider store={store}>
+          <GlobalStyle />
+          <AppComponent {...pageProps} />
+        </Provider>
+      </Hydrate>
+    </QueryClientProvider>
   );
 };
 

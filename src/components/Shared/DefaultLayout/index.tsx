@@ -1,9 +1,12 @@
 import React from 'react';
+import * as S from './DefaultLayout.style';
 
 const DefaultLayout: React.FC = ({ children }) => (
-  <main>
-    {children}
-  </main>
+  <>
+    <S.MainWrapper>
+      {children}
+    </S.MainWrapper>
+  </>
 );
 
 export default DefaultLayout;

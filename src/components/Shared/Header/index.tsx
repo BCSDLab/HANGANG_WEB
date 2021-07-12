@@ -17,7 +17,11 @@ type PropType = {
   progress ?: number;
 }
 
-const Header: React.FC<PropType> = ({ title, subButton, progress }) => {
+const Header: React.FC<PropType> = ({
+  title,
+  subButton,
+  progress,
+}) => {
   const router = useRouter();
 
   const goBack = () => {
